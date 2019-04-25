@@ -13,9 +13,7 @@ class stock_production_lot(models.Model):
     def create(self, vals):
         lot = super(stock_production_lot, self).create(vals)
         if not lot.barcode:
-            format_code = "%s%s%s" % ('888', lot.id, datetime.now().strftime("%d%m%y%H%M"))
-            code = self.env['barcode.nomenclature'].sanitize_ean(format_code)
-            lot.write({'barcode': code})
+            lot.write({'barcode': lot.name})
         return lot
 
     @api.multi
