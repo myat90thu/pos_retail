@@ -70,6 +70,9 @@ odoo.define('pos_retail.database', function (require) {
                 if (partner['name']) {
                     label += '/' + partner['name']
                 }
+                if (partner['dui']) {
+                    label += '/' + partner['dui']
+                }
                 if (partner['barcode']) {
                     label += '/' + partner['barcode']
                 }

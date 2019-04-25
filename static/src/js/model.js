@@ -110,7 +110,11 @@ odoo.define('pos_retail.model', function (require) {
                 'wallet',
                 'property_product_pricelist',
                 'property_payment_term_id',
-                'is_company'
+                'is_company',
+                'dui',
+                'nit',
+                'nrc',
+                'giro'
             );
             if (this.server_version == 10) {
                 partner_model.fields.push('property_product_pricelist');

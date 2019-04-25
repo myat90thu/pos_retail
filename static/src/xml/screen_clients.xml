@@ -129,16 +129,40 @@
                                 <input class='detail client-phone'  name='phone'    type='tel'      t-att-value='partner.phone || ""'></input>
                             </div>
                         </t>
-                        <t t-if="!widget.pos.config.hide_barcode">
+                        <!--<t t-if="!widget.pos.config.hide_barcode">
                             <div class='client-detail'>
                                 <span class='label'>Barcode</span>
                                 <input class='detail barcode'       name='barcode'    t-att-value='partner.barcode || ""'></input>
                             </div>
+                        </t>-->
+                        <t t-if="!widget.pos.config.hide_barcode">
+                            <div class='client-detail'>
+                                <span class='label'>DUI</span>
+                                <input class='detail dui'       name='dui'    t-att-value='partner.dui || ""'></input>
+                            </div>
                         </t>
-                        <t t-if="!widget.pos.config.hide_tax">
+                        <!--<t t-if="!widget.pos.config.hide_tax">
                             <div class='client-detail'>
                                 <span class='label'>Tax ID</span>
                                 <input class='detail vat'           name='vat'     t-att-value='partner.vat || ""'></input>
+                            </div>
+                        </t>-->
+                        <t t-if="!widget.pos.config.hide_barcode">
+                            <div class='client-detail'>
+                                <span class='label'>NIT</span>
+                                <input class='detail nit'       name='nit'    t-att-value='partner.nit || ""'></input>
+                            </div>
+                        </t>
+                        <t t-if="!widget.pos.config.hide_barcode">
+                            <div class='client-detail'>
+                                <span class='label'>NRC</span>
+                                <input class='detail nrc'       name='nrc'    t-att-value='partner.nrc || ""'></input>
+                            </div>
+                        </t>
+                        <t t-if="!widget.pos.config.hide_barcode">
+                            <div class='client-detail'>
+                                <span class='label'>Giro</span>
+                                <input class='detail gito'       name='giro'    t-att-value='partner.giro || ""'></input>
                             </div>
                         </t>
                         <t t-if="!widget.pos.config.hide_pricelist">
