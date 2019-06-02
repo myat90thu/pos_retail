@@ -428,15 +428,41 @@ odoo.define('pos_retail.model', function (require) {
                 } else if (lots.length == 1) {
                     var lot = lots[0];
                     var product = self.db.product_by_id[lot.product_id[0]];
+                    // alert('Ok');
+                    //
+                    //
+                    //
+                    //
+                    //
                     if (product) {
                         selectedOrder.add_product(product, {merge: false});
                         self.gui.close_popup();
                         var order_line = selectedOrder.get_selected_orderline();
+                        
                         if (order_line) {
                             if (lot.replace_product_public_price && lot.public_price) {
                                 order_line.set_unit_price(lot['public_price'])
                                 order_line.price_manually_set = true;
                             }
+                            /*order_line.set_quantity(50)
+                            *
+                            *
+                            * 
+                            * 
+                            * 
+                            * 
+                            * 
+                            * */
+                            $.post("http://192.168.56.102:8069/api/v1/parse_barcode", 
+                            {
+                                partner: window.localStorage.getItem('partner'),
+                                barcode: parsed_code.code
+                            })
+                            .then(function(response){
+                                if(response.peso){
+                                    order_line.set_quantity(response.peso);
+                                }
+                            });
                             $('.packlot-line-input').remove(); // fix on safari
                             setTimeout(function () {
                                 var pack_models = order_line.pack_lot_lines.models;
