@@ -453,7 +453,7 @@ odoo.define('pos_retail.model', function (require) {
                             * 
                             * 
                             * */
-                            $.post("http://192.168.56.102:8069/api/v1/parse_barcode", 
+                            $.post("http://192.168.100.4:8069/api/v1/parse_barcode", 
                             {
                                 partner: window.localStorage.getItem('partner'),
                                 barcode: parsed_code.code
